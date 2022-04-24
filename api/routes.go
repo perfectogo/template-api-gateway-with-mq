@@ -11,7 +11,10 @@ func endpointsV1(r *gin.RouterGroup, h *v1.Handler) {
 	r.Use(MaxAllowed(50))
 	{
 		r.POST("/todo", h.PostTodo)
-		r.GET("/todo/:id", h.GetTodoByID)
+		r.GET("/todos", h.GetTodoList)
+		r.GET("/todos/:id", h.GetTodoByID)
+		r.PUT("/todos/:id", h.PutTodo)
+		r.DELETE("/todos/:id", h.DeleteTodo)
 	}
 }
 
